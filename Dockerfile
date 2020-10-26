@@ -1,7 +1,7 @@
 FROM confluentinc/cp-kafkacat:6.0.0
 USER root
 RUN yum clean all
-RUN yum install -y bind-utils openssl unzip findutils net-tools nc jq which
+RUN yum install -y bind-utils openssl unzip findutils net-tools nc jq which testssl
 # aws clu
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && ./aws/install
 # ccloud clu
