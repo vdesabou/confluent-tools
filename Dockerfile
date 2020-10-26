@@ -1,10 +1,17 @@
 FROM confluentinc/cp-kafkacat:6.0.0
 USER root
 RUN yum clean all
-RUN yum install -y bind-utils openssl unzip findutils net-tools nc jq which testssl hping3
-# aws clu
+# add google and azure repo config
+COPY google-cloud-sdk.repo /etc/yum.repos.d/google-cloud-sdk.repo
+COPY azure-cli.repo /etc/yum.repos.d/azure-cli.repo
+RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc
+# get proxychains
+RUN wget http://springdale.math.ias.edu/data/puias/unsupported/7/x86_64/proxychains-ng-4.11-1.sdl7.x86_64.rpm
+# install utils
+RUN yum install -y bind-utils openssl unzip findutils net-tools nc jq which testssl hping3 proxychains-ng-4.11-1.sdl7.x86_64.rpm azure-cli google-cloud-sdk
+# aws cli
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && ./aws/install
-# ccloud clu
+# ccloud cli
 RUN wget https://s3-us-west-2.amazonaws.com/confluent.cloud/ccloud-cli/archives/latest/ccloud_latest_linux_amd64.tar.gz && tar -xzvf ccloud_latest_linux_amd64.tar.gz && mv ccloud/ccloud /usr/bin && rm ccloud_latest_linux_amd64.tar.gz
 COPY include/etc/confluent/docker /etc/confluent/docker
 # CP
