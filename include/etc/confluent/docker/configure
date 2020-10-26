@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -o nounset \
+    -o errexit
+
+# dub ensure CCLOUD_BOOTSTRAP_SERVERS
+# dub ensure CCLOUD_API_KEY
+# dub ensure CCLOUD_API_SECRET
+
+mkdir -p $HOME/.ccloud
+dub template "/etc/confluent/docker/config.properties.template" $HOME/.ccloud/config

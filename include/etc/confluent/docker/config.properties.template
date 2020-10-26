@@ -1,0 +1,5 @@
+ssl.endpoint.identification.algorithm=https
+sasl.mechanism=PLAIN
+bootstrap.servers={{ env['CCLOUD_BOOTSTRAP_SERVERS'] }}
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username\="{{ env['CCLOUD_API_KEY'] }}" password\="{{ env['CCLOUD_API_SECRET'] }}";
+security.protocol=SASL_SSL

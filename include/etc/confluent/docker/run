@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -o nounset \
+    -o errexit
+
+/etc/confluent/docker/configure
+exec "$@"
