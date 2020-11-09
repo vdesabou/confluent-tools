@@ -3,7 +3,17 @@
 
 ![docker pulls](https://img.shields.io/docker/pulls/vdesabou/confluent-tools)
 
-Docker image with various command lines and tools
+Docker image with cloud provider and Confluent Cloud command lines and useful Linux tools like:
+* bind-util
+* openssl 
+*findutils 
+* net-tools 
+* nc 
+* jq 
+* which 
+* testssl
+* hping
+* proxychains
 
 <!-- omit in toc -->
 ## Table of Contents
