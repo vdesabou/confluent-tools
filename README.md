@@ -6,7 +6,7 @@
 Docker image with cloud provider and Confluent Cloud command lines and useful Linux tools like:
 * bind-util
 * openssl 
-*findutils 
+* findutils 
 * net-tools 
 * nc 
 * jq 
